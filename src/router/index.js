@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
+import Start from "../views/Start.vue";
 
 const routes = [
   {
@@ -15,6 +16,18 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "/start",
+    name: "Start",
+    component: Start,
+  },
+  {
+    //This route can probably be deleted if we go the component route
+    path: "/Datavalidation",
+    name: "Datavalidation",
+    component: () =>
+      import(/* webpackChunkName: "about" */ "../views/Datavalidation.vue"),
   },
 ];
 

@@ -1,0 +1,56 @@
+<template>
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <router-link class="navbar-item mr-0 pr-0" to="/">
+        <img src="../../public/assets/pinkyLogo.svg" height="38" width="38" />
+      </router-link>
+
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        data-target="navbarBasicExample"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <router-link class="navbar-item ml-0 pl-1 mr-5" to="/"
+          >Pinky</router-link
+        >
+
+        <router-link class="navbar-item" to="/about">About</router-link>
+
+        <router-link class="navbar-item" to="/start">Start</router-link>
+      </div>
+    </div>
+  </nav>
+  <router-view />
+</template>
+
+<script>
+import { reactive, toRefs } from "vue";
+
+export default {
+  setup() {
+    const state = reactive({
+      count: 0,
+    });
+
+    return {
+      ...toRefs(state),
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.navbar-item {
+  font-weight: bold;
+}
+</style>

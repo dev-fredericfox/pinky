@@ -1,0 +1,46 @@
+<template>
+  <div>
+    <div class="content">
+      <div class="columns">
+        <div class="column is-4"></div>
+        <div class="column has-text-centered">
+          <button v-if="state.count > 0" class="button mr-1" @click="prev">
+            Back
+          </button>
+          <button class="button ml-1" @click="next" :disabled="!store.ui.next">
+            Next
+          </button>
+
+          <p>Child Count: {{ state.count }} - {{ state.steps.length }}</p>
+        </div>
+        <div class="column is-4"></div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import { inject } from "vue";
+
+export default {
+  Name: "Navigation",
+  setup() {
+    let state = inject("state");
+    let store = inject("store");
+    const next = () => {
+      store.ui.next = false;
+      state.count++;
+    };
+    const prev = () => state.count--;
+
+    return {
+      next,
+      prev,
+      state,
+      store,
+    };
+  },
+};
+</script>
+
+<style lang="scss" scoped></style>
