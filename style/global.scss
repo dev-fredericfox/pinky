@@ -1,0 +1,22 @@
+@import './vendor/bulma/sass/utilities/initial-variables';
+@import './vendor/bulma/sass/utilities/functions';
+
+//Bulma
+$transparent: rgba(0, 0, 0, 0);
+$success: rgba(10,123,232);
+$navbar-height: 4rem;
+$navbar-background-color: #411640;
+$navbar-item-hover-background-color: #411640;
+$navbar-item-color: #fff;
+$navbar-item-hover-color: #DCB933;
+$navbar-item-active-color: #DCB933;
+
+@import './vendor/bulma/bulma.sass';
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
