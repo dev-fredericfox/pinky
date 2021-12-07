@@ -1,9 +1,13 @@
 <template>
   <div class="content">
-    <div class="columns">
-      <div class="column has-text-centered">
+    <div class="columns is-centered">
+      <div class="column is-6 has-text-centered">
         <h1 class="title is-4">Welcome to Pinky, the assistant for Brain.js</h1>
         <h2 class="title is-6">In the next steps you will be able to:</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-4 has-text-centered">
         <ul class="has-text-left">
           <li>Upload or paste your csv training data</li>
           <li>Validate the type and integrity of the</li>
