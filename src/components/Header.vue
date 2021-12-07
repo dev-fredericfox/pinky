@@ -10,7 +10,7 @@
         class="navbar-burger"
         aria-label="menu"
         aria-expanded="false"
-        data-target="navbarBasicExample"
+        @click="activeNav = !activeNav"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -18,9 +18,15 @@
       </a>
     </div>
 
-    <div id="navbarBasicExample" class="navbar-menu">
+    <div
+      id="navbarBasicExample"
+      :class="[{ 'is-active': activeNav }, 'navbar-menu']"
+    >
       <div class="navbar-start">
-        <router-link class="navbar-item ml-0 pl-1 mr-5" to="/"
+        <router-link
+          class="navbar-item ml-0 pl-1 mr-5"
+          @click="activeNav = !activeNav"
+          to="/"
           >Pinky</router-link
         >
         <router-link class="navbar-item" @click="startAndReset()" to="/start"
@@ -28,8 +34,18 @@
         >
       </div>
       <div class="navbar-end">
-        <router-link class="navbar-item" to="about">About</router-link>
-        <router-link class="navbar-item" to="/imprint">Imprint</router-link>
+        <router-link
+          class="navbar-item"
+          @click="activeNav = !activeNav"
+          to="about"
+          >About</router-link
+        >
+        <router-link
+          class="navbar-item"
+          @click="activeNav = !activeNav"
+          to="/imprint"
+          >Imprint</router-link
+        >
       </div>
     </div>
   </nav>
@@ -43,9 +59,11 @@ export default {
   setup() {
     const state = reactive({
       count: 0,
+      activeNav: false,
     });
 
     const startAndReset = () => {
+      state.activeNav = !state.activeNav;
       if (window.location.href.indexOf("start") > 0) {
         window.location.reload();
       } else {
