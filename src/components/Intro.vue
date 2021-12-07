@@ -9,7 +9,7 @@
           <li>sValidate the type and integrity of the</li>
           <li>sDelete unused columns or do some very basic modifications.</li>
           <li>sSet the output ie. what the model should be predicting</li>
-          <li>sTrain your Brain.js model</li>
+          <li>Train your Brain.js model</li>
         </ul>
       </div>
     </div>
@@ -17,21 +17,17 @@
 </template>
 
 <script>
-import { inject, reactive, toRefs, onMounted } from "vue";
+import { inject, onMounted } from "vue";
 
 export default {
   setup() {
     const store = inject("store");
-    const state = reactive({
-      count: 0,
-    });
 
     onMounted(() => {
       store.methods.clearCache();
       store.ui.next = true;
     });
     return {
-      ...toRefs(state),
       store,
     };
   },
