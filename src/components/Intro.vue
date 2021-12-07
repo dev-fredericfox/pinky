@@ -5,10 +5,10 @@
         <h1 class="title is-4">Welcome to Pinky, the assistant for Brain.js</h1>
         <h2 class="title is-6">In the next steps you will be able to:</h2>
         <ul class="has-text-left">
-          <li>sUpload or paste your csv training data</li>
-          <li>sValidate the type and integrity of the</li>
-          <li>sDelete unused columns or do some very basic modifications.</li>
-          <li>sSet the output ie. what the model should be predicting</li>
+          <li>Upload or paste your csv training data</li>
+          <li>Validate the type and integrity of the</li>
+          <li>Delete unused columns or do some very basic modifications.</li>
+          <li>Set the output ie. what the model should be predicting</li>
           <li>Train your Brain.js model</li>
         </ul>
       </div>
