@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content p-5">
     <div class="columns mt-5 pt-5">
       <div class="column has-text-centered">
         <h1 class="title is-2">Impressum</h1>

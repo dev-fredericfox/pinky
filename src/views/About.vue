@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content p-5">
     <div class="about">
       <h1>This is an about page, ok?</h1>
       {{ count }}
