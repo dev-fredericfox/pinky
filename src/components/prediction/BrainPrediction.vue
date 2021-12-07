@@ -24,7 +24,7 @@
               >
                 Download .csv
               </button>
-              <a href="/predict">
+              <a href="./predict">
                 <button
                   class="button m-2"
                   :disabled="store.data.predictionReady"
@@ -34,7 +34,7 @@
               </a>
             </div>
             <a
-              href="/assets/HouseingResult30.csv"
+              href="./assets/HouseingResult30.csv"
               download="Housing acutal results - Close to Ocean - 1 means close.csv"
               >Using the demo data? Download the real results to compare with
               the Neural Net Prediction and see how your trained neural net

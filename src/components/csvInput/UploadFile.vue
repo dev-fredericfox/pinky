@@ -8,7 +8,7 @@
       >
         <div @drop="onFileChange" class="dropInner mt-4 mb-4">
           <div class="">
-            <img src="../../../public/assets/folderIcon.png" />
+            <img src="./assets/folderIcon.png" />
             <p>Drag & Drop file here</p>
             <div><p class="orbackground">or</p></div>
           </div>
@@ -40,10 +40,7 @@
             <div class="column selectedFile box is-6">
               <div class="columns is-centered is-mobile">
                 <div class="column is-narrow has-text-left">
-                  <img
-                    class="tagImage"
-                    src="../../../public/assets/fileBlank.png"
-                  />
+                  <img class="tagImage" src="./public/assets/fileBlank.png" />
                 </div>
                 <div class="column has-text-left is-clipped">
                   <p class="filename mb-0 mt-3 is-size-7-mobile">
@@ -55,7 +52,7 @@
                   <p class="filesize mt-0 mb-0" v-else>Loading...</p>
                 </div>
                 <div @click="clearFile" class="column is-narrow has-text-right">
-                  <img class="trash" src="../../../public/assets/close.png" />
+                  <img class="trash" src="./public/assets/close.png" />
                 </div>
               </div>
             </div>

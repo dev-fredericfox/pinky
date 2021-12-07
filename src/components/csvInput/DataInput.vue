@@ -31,13 +31,13 @@
           <div class="mt-5 mb-0">
             <a
               v-if="props.dl === 'training'"
-              href="/assets/HousingTraining70.csv"
+              href="./assets/HousingTraining70.csv"
               download="Housing TRAINING Data - Close to Ocean - 1 means close.csv"
               >Don't have a training dataset? Download the demo .csv!</a
             >
             <a
               v-else
-              href="/assets/HousingPrediction30.csv"
+              href="./assets/HousingPrediction30.csv"
               download="Housing PREDICTION Data - Close to Ocean - 1 means close.csv"
               >Don't have a prediction dataset? Download the demo .csv!</a
             >

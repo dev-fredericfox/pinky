@@ -7,7 +7,7 @@
           <p>Neural Network Training in Progress...</p>
           <p>{{ store.ui.trainingStatus }} training iterations.</p>
           <p>Error Rate: {{ store.ui.trainingError }}</p>
-          <a href="/predict">
+          <a href="./predict">
             <button class="button m-2" :disabled="!store.data.trainedNet">
               Make Predictions
             </button>
