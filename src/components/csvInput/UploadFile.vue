@@ -38,7 +38,7 @@
         >
           <div class="columns is-centered">
             <div class="column selectedFile box is-6">
-              <div class="columns is-centered">
+              <div class="columns is-centered is-mobile">
                 <div class="column is-narrow has-text-left">
                   <img
                     class="tagImage"
@@ -46,7 +46,7 @@
                   />
                 </div>
                 <div class="column has-text-left is-clipped">
-                  <p class="filename mb-0 mt-3">
+                  <p class="filename mb-0 mt-3 is-size-7-mobile">
                     {{ store.data.trainingSetFileName }}
                   </p>
                   <p class="filesize mt-0 mb-0" v-if="!loadingFile">

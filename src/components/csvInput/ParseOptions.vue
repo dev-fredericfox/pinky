@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns is-centered">
         <div class="column is-4 has-text-left">
-          <h3>{{ store.data.trainingSetFileName }}</h3>
+          <h3 class="title is-5">{{ store.data.trainingSetFileName }}</h3>
           <div class="field">
             <label class="label">CSV Sparator type</label>
             <div class="control">

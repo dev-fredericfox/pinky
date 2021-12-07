@@ -3,16 +3,15 @@
     <div class="content">
       <div class="columns">
         <div class="column has-text-centered is-12">
-          <h1>
-            Let's check the compatibility of the parsed data with the neural
-            network.
+          <h1 class="title is-4">
+            Data compatibility with the neural network.
           </h1>
         </div>
       </div>
       <div class="columns">
         <div class="column has-text-left is-2"></div>
         <div class="column has-text-left is-4">
-          <DataPreview :key="store.ui.componentKeyDataPreview"/>
+          <DataPreview :key="store.ui.componentKeyDataPreview" />
         </div>
         <div class="column has-text-left is-4">
           <DataFormatting />
@@ -32,7 +31,7 @@ export default {
   setup() {
     const store = inject("store");
     return {
-      store
+      store,
     };
   },
 };

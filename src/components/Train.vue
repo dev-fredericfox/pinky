@@ -3,18 +3,18 @@
     <div class="content">
       <div class="columns is-centered">
         <div class="column is-6 has-text-centered">
-          <h1>Training Brain</h1>
+          <h1 class="title is-4">Training Brain</h1>
           <p>Neural Network Training in Progress...</p>
           <p>{{ store.ui.trainingStatus }} training iterations.</p>
           <p>Error Rate: {{ store.ui.trainingError }}</p>
           <a href="/predict">
-            <button class="button mr-2" :disabled="!store.data.trainedNet">
+            <button class="button m-2" :disabled="!store.data.trainedNet">
               Make Predictions
             </button>
           </a>
 
           <button
-            class="button ml-2"
+            class="button m-2"
             :disabled="!store.data.trainedNet"
             @click="clickDownload()"
           >

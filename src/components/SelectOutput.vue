@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns is-centered">
         <div class="column is-6 has-text-centered">
-          <h1>What is your output?</h1>
+          <h1 class="title is-4">What is your output?</h1>
           My output should be:
           <div class="select is-small">
             <select v-model="selection">

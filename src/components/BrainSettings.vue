@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns is-centered">
         <div class="column is-6 has-text-centered">
-          <div class="content"><h1>Brain Settings</h1></div>
+          <div class="content"><h1 class="title is-4">Brain Settings</h1></div>
         </div>
       </div>
       <div class="columns is-centered">

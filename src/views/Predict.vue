@@ -1,6 +1,6 @@
 <template>
   <Breadcrumbs :stage="count" :trainOrPredict="'predict'" />
-  <div class="mainComponent">
+  <div class="mainComponent p-5">
     <transition name="component-fade" mode="out-in">
       <component :is="current"></component>
     </transition>

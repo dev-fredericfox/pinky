@@ -26,21 +26,19 @@
         :key="idx"
         class="column with-background pb-5 pt-3 mb-4"
       >
-        <div class="columns">
-          <div class="column">
-            {{ item[0] }}
-          </div>
+        <div class="columns is-mobile">
+          <div class="column"><b>Feature:</b> {{ item[0] }}</div>
           <div class="column is-narrow has-text-right">
             <span class="tag is-danger" @click="delKey(item[0])"
-              >delte key <button class="delete is-small"></button
+              >delte feature <button class="delete is-small"></button
             ></span>
           </div>
         </div>
         <div class="columns">
           <div class="column">
             <div v-for="(type, idy) in Object.keys(item[1])" :key="idy">
-              <div class="columns is-justify-content-space-between">
-                <div class="column pb-0 pt-1">
+              <div class="columns is-mobile is-justify-content-space-between">
+                <div class="column is-half-mobile pb-0 pt-1">
                   <div
                     :class="[
                       { 'green bold': typeSum[item[0]] == item[1][type] },
@@ -54,7 +52,7 @@
                     }}
                   </div>
                 </div>
-                <div class="column has-text-right pb-0 pt-1">
+                <div class="column is-half-mobile has-text-right pb-0 pt-1">
                   <span
                     :class="[
                       { 'green bold': typeSum[item[0]] == item[1][type] },
@@ -65,7 +63,9 @@
                     }}</span
                   >
                 </div>
-                <div class="column has-text-right pb-0 pt-1">
+              </div>
+              <div class="columns">
+                <div class="column has-text-left pb-0 pt-1">
                   <div class="select is-small">
                     <select v-model="selected[idx + '-' + idy]">
                       <option
@@ -90,7 +90,7 @@
                 </div>
 
                 <div
-                  class="column has-text-right pb-0 pt-0"
+                  class="column has-text-left pb-0 pt-0"
                   v-if="selected[idx + '-' + idy]"
                 >
                   <div v-if="selected[idx + '-' + idy].with === 4">
@@ -131,7 +131,7 @@
               >
                 <div class="column is-8 pb-3 pt-0">
                   <div class="tag is-danger">
-                    Number needs to be between 0 and 1.
+                    Number should to be between 0 and 1 for accurate results.
                   </div>
                 </div>
               </div>

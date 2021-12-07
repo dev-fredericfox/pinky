@@ -2,13 +2,15 @@
   <div class="content">
     <div class="columns">
       <div class="column has-text-centered">
-        <h1 class="title is-3">Welcome to Pinky, the assistant for Brain.js</h1>
-        <h2 class="title is-5">In the next steps you will be able to:</h2>
-        <p>Upload or paste your csv training data</p>
-        <p>Validate the type and integrity of the</p>
-        <p>Delete unused columns or do some very basic modifications.</p>
-        <p>Set the output ie. what the model should be predicting</p>
-        <p>Train your Brain.js model</p>
+        <h1 class="title is-4">Welcome to Pinky, the assistant for Brain.js</h1>
+        <h2 class="title is-6">In the next steps you will be able to:</h2>
+        <ul class="has-text-left">
+          <li>sUpload or paste your csv training data</li>
+          <li>sValidate the type and integrity of the</li>
+          <li>sDelete unused columns or do some very basic modifications.</li>
+          <li>sSet the output ie. what the model should be predicting</li>
+          <li>sTrain your Brain.js model</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -36,8 +38,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-p {
-  line-height: 0.4rem;
-}
-</style>
+<style lang="scss" scoped></style>

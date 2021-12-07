@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns">
         <div class="column has-text-centered pt-0 is-12">
-          <h1>{{ props.title }}</h1>
+          <h1 class="title is-4">{{ props.title }}</h1>
         </div>
       </div>
       <div class="tabs columns is-centered">

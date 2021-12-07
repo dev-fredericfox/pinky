@@ -7,7 +7,7 @@
           :key="idx"
           class="mt-0"
         >
-          <div class="columns">
+          <div class="columns is-mobile">
             <div
               class="column is-narrow pb-0 mb-0 mt-1 pt-0"
               v-if="collapse[key]"

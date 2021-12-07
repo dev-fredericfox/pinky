@@ -2,8 +2,8 @@
   <div>
     <div class="content">
       <div class="columns is-centered">
-        <div class="column is-6 has-text-centered">
-          <h1>Predicting Numbers</h1>
+        <div class="column is-8 has-text-centered">
+          <h1 class="title is-4">Predicting Numbers</h1>
           <div v-if="!store.ui.predictionReady">
             <p>Neural Network Prediction in Progress...</p>
           </div>
@@ -14,13 +14,11 @@
                 v-model="results.csv"
                 readonly
                 class="results"
-                rows="30"
-                cols="70"
               ></textarea>
             </div>
             <div class="column is-12 has-text-centered">
               <button
-                class="button ml-2"
+                class="button m-2"
                 :disabled="store.data.predictionReady"
                 @click="clickDownload()"
               >
@@ -28,7 +26,7 @@
               </button>
               <a href="/predict">
                 <button
-                  class="button ml-2"
+                  class="button m-2"
                   :disabled="store.data.predictionReady"
                 >
                   Make an other prediction
@@ -39,7 +37,8 @@
               href="/assets/HouseingResult30.csv"
               download="Housing acutal results - Close to Ocean - 1 means close.csv"
               >Using the demo data? Download the real results to compare with
-              the Neural Net Prediction and see how your trained neural net performed!</a
+              the Neural Net Prediction and see how your trained neural net
+              performed!</a
             >
           </div>
         </div>
@@ -99,5 +98,11 @@ export default {
   },
 };
 </script>
-.results { font-family: monospace; }
-<style lang="scss" scoped></style>
+
+<style lang="scss" scoped>
+.results {
+  font-family: monospace;
+  width: 100%;
+  height: 40vh;
+}
+</style>

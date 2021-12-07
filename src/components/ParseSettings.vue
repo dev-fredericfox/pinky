@@ -3,7 +3,7 @@
     <div class="content">
       <div class="columns is-centered">
         <div class="column has-text-centered pt-0 is-6">
-          <h1>How should we parse your data?</h1>
+          <h1 class="title is-4">How should we parse your data?</h1>
         </div>
       </div>
       <Parseoptions />
