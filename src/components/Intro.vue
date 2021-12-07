@@ -38,6 +38,6 @@ export default {
 
 <style lang="scss" scoped>
 p {
-line-height: 0.4rem;
+  line-height: 0.4rem;
 }
 </style>

@@ -51,7 +51,7 @@ export default {
         "DataValidation",
         "SelectOutput",
         "BrainSettings",
-        "Train"
+        "Train",
       ],
       test: "test",
     });
