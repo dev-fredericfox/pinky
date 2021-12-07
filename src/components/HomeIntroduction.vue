@@ -39,7 +39,7 @@
         </p>
       </div>
       <router-link class="navbar-item" to="/start">
-        <button>Try training a Neural Network</button>
+        <button class="button is-info">Try training a Neural Network</button>
       </router-link>
     </div>
   </div>
