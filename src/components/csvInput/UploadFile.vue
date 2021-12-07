@@ -49,7 +49,9 @@
                   <p class="filename mb-0 mt-3">
                     {{ store.data.trainingSetFileName }}
                   </p>
-                  <p class="filesize mt-0 mb-0" v-if="!loadingFile">{{ fileSize }}</p>
+                  <p class="filesize mt-0 mb-0" v-if="!loadingFile">
+                    {{ fileSize }}
+                  </p>
                   <p class="filesize mt-0 mb-0" v-else>Loading...</p>
                 </div>
                 <div @click="clearFile" class="column is-narrow has-text-right">
@@ -92,7 +94,6 @@ export default {
       store.data.trainingSetFileType = files.value[0].type;
       fileReader(files.value[0]);
     };
-
 
     const fileReader = function (file) {
       let reader = new FileReader();
@@ -185,7 +186,7 @@ export default {
 }
 
 .fixed {
-  height: 140px;
+  height: 120px;
 }
 
 .slide-fade-enter-active {

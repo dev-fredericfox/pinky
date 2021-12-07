@@ -4,14 +4,24 @@
       <div class="columns">
         <div class="column is-4"></div>
         <div class="column has-text-centered">
-          <button v-if="state.count > 0" class="button mr-1" @click="prev">
+          <button
+            v-if="state.count > 0 && store.ui.back"
+            class="button mr-1"
+            @click="prev"
+          >
             Back
           </button>
-          <button class="button ml-1" @click="next" :disabled="!store.ui.next">
+          <button
+            v-if="store.ui.showNext"
+            class="button ml-1"
+            @click="next"
+            :disabled="!store.ui.next"
+          >
             Next
           </button>
 
-          <p>Child Count: {{ state.count }} - {{ state.steps.length }}</p>
+          <!-- <p>Child Count: {{ state.count }} - {{ state.steps.length }}</p>
+          <input v-model="state.count"> -->
         </div>
         <div class="column is-4"></div>
       </div>
@@ -31,7 +41,9 @@ export default {
       store.ui.next = false;
       state.count++;
     };
-    const prev = () => state.count--;
+    const prev = () => {
+      state.count--;
+    };
 
     return {
       next,

@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Start from "../views/Start.vue";
+import Predict from "../views/Predict.vue";
+import About from "../views/About.vue";
+import Imprint from "../views/Imprint.vue";
 
 const routes = [
   {
@@ -9,13 +12,14 @@ const routes = [
     component: Home,
   },
   {
-    path: "/about",
+    path: "/About",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+    component: About,
+  },
+  {
+    path: "/imprint",
+    name: "Imprint",
+    component: Imprint,
   },
   {
     path: "/start",
@@ -23,11 +27,9 @@ const routes = [
     component: Start,
   },
   {
-    //This route can probably be deleted if we go the component route
-    path: "/Datavalidation",
-    name: "Datavalidation",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/Datavalidation.vue"),
+    path: "/predict",
+    name: "Predict",
+    component: Predict,
   },
 ];
 

@@ -16,10 +16,32 @@
               <div class="field">
                 <div class="control">
                   <input
-                    :class="[{ 'is-danger': !iterations }, 'input']"
+                    :class="['input']"
                     type="number"
                     placeholder="2000"
                     v-model.number="store.brainOptions.iterations"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-centered">
+        <div class="column is-6 has-text-left">
+          <div class="field is-horizontal">
+            <div class="field-label">
+              <label class="label">Timeout (in ms)</label>
+            </div>
+            <div class="field-body">
+              <div class="field">
+                <div class="control">
+                  <input
+                    :class="[{ 'is-danger': !iterations }, 'input']"
+                    type="number"
+                    placeholder="Leave empty for infinity"
+                    v-model.number="timeout"
                   />
                 </div>
                 <p v-if="!iterations" class="is-danger">
@@ -93,10 +115,10 @@
                 <div class="control">
                   <div class="select is-fullwidth">
                     <select v-model="store.brainOptions.activation">
-                      <option selected>Sigmoid</option>
-                      <option>Relu</option>
-                      <option>Leaky-Relu</option>
-                      <option>Tanh</option>
+                      <option selected>sigmoid</option>
+                      <option>relu</option>
+                      <option>leaky-relu</option>
+                      <option>tanh</option>
                     </select>
                   </div>
                 </div>
@@ -137,7 +159,7 @@
           <div class="columns is-centered">
             <div class="column has-text-centered is-6">
               <hr />
-              <h4>Hidden Layers</h4>
+              <h4 class="title mb-1">Hidden Layers</h4>
             </div>
           </div>
           <div class="columns is-centered">
@@ -152,9 +174,14 @@
                   <div class="field">
                     <div class="control">
                       <input
-                        :class="[{ 'is-danger': !layers[layer - 1] }, 'input']"
+                        :class="[
+                          { 'is-danger': !layers[layer - 1] },
+                          'input',
+                          'is-small',
+                        ]"
                         type="number"
                         placeholder="3"
+                        size="10"
                         v-model.number="
                           store.brainOptions.hiddenLayers[layer - 1]
                         "
@@ -175,10 +202,10 @@
             </p>
           </div>
 
-          <div class="columns is-centered">
+          <div class="columns is-centered mb-5">
             <div class="column is-narrow">
               <button
-                class="button mt-5"
+                class="button"
                 @click="addLayers()"
                 :disabled="disableAdd"
               >
@@ -187,7 +214,7 @@
             </div>
             <div class="column is-narrow">
               <button
-                class="button mt-5"
+                class="button"
                 @click="removeLayers()"
                 :disabled="disabledRem"
               >
@@ -197,16 +224,12 @@
           </div>
         </div>
       </div>
-
-      <div v-for="(option, idx) in store.brainOptions" :key="idx">
-        {{ idx }}: {{ option }}
-      </div>
     </div>
   </div>
 </template>
 
 <script>
-import { inject, reactive, toRefs, watchEffect } from "vue";
+import { inject, reactive, toRefs, watchEffect, onMounted } from "vue";
 export default {
   setup() {
     const store = inject("store");
@@ -215,6 +238,7 @@ export default {
       disableAdd: false,
       disabledRem: true,
     });
+    const local = reactive({ timeout: 90000 });
 
     const validation = reactive({
       iterations: false,
@@ -226,7 +250,7 @@ export default {
     });
 
     const addLayers = function () {
-      store.brainOptions.hiddenLayers.push(1)
+      store.brainOptions.hiddenLayers.push(1);
       if (layers.amount == 1) {
         layers.amount++;
         layers.disabledRem = false;
@@ -286,13 +310,16 @@ export default {
       } else {
         store.ui.next = false;
       }
+      if (local.timeout < 1000 || typeof local.timeout != "number") {
+        store.brainOptions.timeout = Number.MAX_VALUE;
+      } else {
+        store.brainOptions.timeout = local.timeout;
+      }
     });
 
-    // watchEffect(() => {
-    //   store.brainOptions.binaryThresh > 0
-    //     ? (validation.threshold = true)
-    //     : (validation.threshold = false);
-    // });
+    onMounted(() => {
+      store.ui.back = false;
+    });
 
     return {
       store,
@@ -300,6 +327,7 @@ export default {
       addLayers,
       ...toRefs(validation),
       removeLayers,
+      ...toRefs(local)
     };
   },
 };

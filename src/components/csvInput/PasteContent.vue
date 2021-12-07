@@ -1,11 +1,11 @@
 <template>
-<div>
-  <textarea
-    class="textarea"
-    placeholder="paste your csv data here:"
-    rows="10"
-    v-model="store.data.trainingSetInputCsv"
-  ></textarea>
+  <div>
+    <textarea
+      class="textarea"
+      placeholder="paste your csv data here:"
+      rows="10"
+      v-model="store.data.trainingSetInputCsv"
+    ></textarea>
   </div>
 </template>
 

@@ -2,13 +2,14 @@
   <div>
     <div class="content">
       <div class="columns is-centered">
-        <div class="column is-3 has-text-left">
+        <div class="column is-4 has-text-left">
           <h3>{{ store.data.trainingSetFileName }}</h3>
           <div class="field">
             <label class="label">CSV Sparator type</label>
             <div class="control">
               <input
                 class="input"
+                id="csvSeparatorInput"
                 type="text"
                 placeholder="Auto Detect"
                 v-model="store.parseOptions.delimiter"
@@ -91,5 +92,9 @@ export default {
 <style lang="scss" scoped>
 .bold {
   font-weight: bold;
+}
+
+#csvSeparatorInput {
+  max-width: 200px;
 }
 </style>

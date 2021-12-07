@@ -1,8 +1,5 @@
 <template>
   <div class="content">
-    <div class="nav">
-      <Navbar />
-    </div>
     <div class="about">
       <h1>This is an about page, ok?</h1>
       {{ count }}
@@ -13,11 +10,8 @@
 
 <script>
 import { reactive, toRefs } from "vue";
-import Navbar from "@/components/Navbar.vue";
 
 export default {
-  components: { Navbar },
-  props: {},
   setup() {
     const state = reactive({
       count: 0,
@@ -25,7 +19,6 @@ export default {
 
     return {
       ...toRefs(state),
-      Navbar,
     };
   },
 };

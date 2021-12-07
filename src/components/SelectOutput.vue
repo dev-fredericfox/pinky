@@ -26,6 +26,7 @@
           >
             Process
           </button>
+          <p class="mt-3" v-if="output">Output processed.</p>
         </div>
       </div>
     </div>
@@ -42,6 +43,7 @@ export default {
     const selection = ref();
     const processButton = ref(true);
     const buttonspinner = ref(false);
+    const output = ref(false);
 
     const arrangeData = function () {
       store.data.brainTraining = [];
@@ -57,6 +59,9 @@ export default {
         delete store.data.brainTraining[i].input[selection.value];
       }
       store.ui.next = true;
+      processButton.value = true;
+      store.ui.back = false;
+      output.value = true;
     };
 
     watch(selection, () => {
@@ -71,6 +76,7 @@ export default {
       processButton,
       arrangeData,
       buttonspinner,
+      output,
     };
   },
 };

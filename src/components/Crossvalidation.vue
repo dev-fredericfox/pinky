@@ -10,12 +10,14 @@
           </p>
           <div class="columns">
             <div class="column has-text-centered">
-              <button class="button is-primary">
-                Upload Crossvalidation Set
+              <button class="button is-primary" disabled>
+                Upload set (comming soon)
               </button>
             </div>
             <div class="column has-text-centered">
-              <button class="button is-primary">SKIP</button>
+              <button class="button is-primary" @click="skip()">
+                Skip this step
+              </button>
             </div>
             <div class="column has-text-centered">
               <button @click="splitXval()" class="button is-primary">
@@ -34,6 +36,7 @@ import { inject } from "vue";
 export default {
   setup() {
     const store = inject("store");
+    const state = inject("state");
 
     const splitXval = function () {
       store.data.xValInputJSON = [];
@@ -45,9 +48,15 @@ export default {
       store.ui.next = true;
     };
 
+    const skip = function () {
+      store.data.xValInputJSON = "";
+      state.count += 1;
+    };
+
     return {
       store,
       splitXval,
+      skip,
     };
   },
 };

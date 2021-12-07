@@ -1,3 +1,6 @@
+@import './vendor/bulma/sass/utilities/initial-variables';
+@import './vendor/bulma/sass/utilities/functions';
+
 //Bulma
 $transparent: rgba(0, 0, 0, 0);
 $success: rgba(10,123,232);
@@ -7,7 +10,8 @@ $navbar-item-hover-background-color: #411640;
 $navbar-item-color: #fff;
 $navbar-item-hover-color: #DCB933;
 $navbar-item-active-color: #DCB933;
-@import '~bulma';
+
+@import './vendor/bulma/bulma.sass';
 
 
 * {

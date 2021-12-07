@@ -23,10 +23,13 @@
         <router-link class="navbar-item ml-0 pl-1 mr-5" to="/"
           >Pinky</router-link
         >
-
-        <router-link class="navbar-item" to="/about">About</router-link>
-
-        <router-link class="navbar-item" to="/start">Start</router-link>
+        <router-link class="navbar-item" @click="startAndReset()" to="/start"
+          >Train a Brain</router-link
+        >
+      </div>
+      <div class="navbar-end">
+        <router-link class="navbar-item" to="about">About</router-link>
+        <router-link class="navbar-item" to="/imprint">Imprint</router-link>
       </div>
     </div>
   </nav>
@@ -42,8 +45,16 @@ export default {
       count: 0,
     });
 
+    const startAndReset = () => {
+      if (window.location.href.indexOf("start") > 0) {
+        window.location.reload();
+      } else {
+        location.href("/start");
+      }
+    };
     return {
       ...toRefs(state),
+      startAndReset,
     };
   },
 };

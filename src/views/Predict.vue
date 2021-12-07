@@ -1,5 +1,5 @@
 <template>
-  <Breadcrumbs :stage="count" :trainOrPredict="'train'" />
+  <Breadcrumbs :stage="count" :trainOrPredict="'predict'" />
   <div class="mainComponent">
     <transition name="component-fade" mode="out-in">
       <component :is="current"></component>
@@ -12,27 +12,21 @@
 import store from "@/store/global.js";
 import { reactive, toRefs, computed, provide, onMounted } from "vue";
 import Breadcrumbs from "@/components/Breadcrumbs.vue";
-import Intro from "@/components/Intro.vue";
-import TrainingUpload from "@/components/TrainingUpload.vue";
+import PredictionUpload from "@/components/prediction/PredictionUpload.vue";
+import ParseSettings from "@/components/ParseSettings.vue";
 import Navigation from "@/components/Navigation.vue";
 import DataValidation from "@/components/DataValidation.vue";
-import ParseSettings from "@/components/ParseSettings.vue";
-import SelectOutput from "@/components/SelectOutput.vue";
-import BrainSettings from "@/components/BrainSettings.vue";
-import Train from "@/components/Train.vue";
+import BrainPrediction from "@/components/prediction/BrainPrediction.vue";
 
 export default {
   name: "Start",
   components: {
     Breadcrumbs,
-    Intro,
-    TrainingUpload,
+    PredictionUpload,
+    ParseSettings,
     Navigation,
     DataValidation,
-    ParseSettings,
-    SelectOutput,
-    BrainSettings,
-    Train,
+    BrainPrediction,
   },
   props: {
     stage: {
@@ -45,20 +39,16 @@ export default {
     const state = reactive({
       count: 0,
       steps: [
-        "Intro",
-        "TrainingUpload",
+        "PredictionUpload",
         "ParseSettings",
         "DataValidation",
-        "SelectOutput",
-        "BrainSettings",
-        "Train"
+        "BrainPrediction",
       ],
       test: "test",
     });
 
     onMounted(() => {
       store.ui.back = false;
-      store.ui.next = true;
     });
 
     //Returns the component to load based on the step count.

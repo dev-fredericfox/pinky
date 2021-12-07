@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import {} from "vue";
+import { computed } from "vue";
 
 export default {
   name: "Breadcrumbs",
@@ -33,18 +33,39 @@ export default {
       default: 0,
       require: true,
     },
+    trainOrPredict: {
+      type: String,
+      default: "train",
+    },
   },
-  setup() {
-    const breadcrumbs = [
-      "Intro",
-      "Data Upload",
-      "Parse Settings",
-      "Validation",
-      "Output",
-      "X-Validation",
-      "Settings",
-      "Training",
-    ];
+  setup(props) {
+    // const breadcrumbs = [
+    //   "Intro",
+    //   "Data Upload",
+    //   "Parse Settings",
+    //   "Validation",
+    //   "Output",
+    //   "X-Validation",
+    //   "Settings",
+    //   "Training",
+    // ];
+
+    const crumbs = {
+      train: [
+        "Intro",
+        "Data Upload",
+        "Parse Settings",
+        "Validation",
+        "Output",
+        "Settings",
+        "Training",
+      ],
+      predict: ["Data Upload", "Parse Settings", "Validation", "Prediction"],
+    };
+
+    const breadcrumbs = computed(() => {
+      return crumbs[props.trainOrPredict];
+    });
 
     return {
       breadcrumbs,
