@@ -92,7 +92,7 @@ const methods = {
   sumTypeof: function () {
     if (window.Worker) {
       ui.loading = true;
-      myWorker = new Worker("/scripts/worker/sumTypeof.js", {
+      myWorker = new Worker("./scripts/worker/sumTypeof.js", {
         type: "module",
       });
       console.log("Sending data to worker...");
@@ -117,7 +117,7 @@ const methods = {
     }
   },
   modifyTypes: function (key, target) {
-    myWorker = new Worker("/scripts/worker/formatTypes.js", {
+    myWorker = new Worker("./scripts/worker/formatTypes.js", {
       type: "module",
     });
     console.log("Sending data to worker n2...");
@@ -149,7 +149,7 @@ const methods = {
   },
   trainBrain: function () {
     myWorker.terminate();
-    myWorker = new Worker("/scripts/worker/neuralNet.js");
+    myWorker = new Worker("./scripts/worker/neuralNet.js");
     console.log("Booting Brain...");
     console.log("Here we go: ");
     ui.trainingStatus = 0;
@@ -178,7 +178,7 @@ const methods = {
   runPrediction: function () {
     ui.predictionReady = false;
     console.log("booting prediction worker");
-    myWorker = new Worker("/scripts/worker/runPrediction.js");
+    myWorker = new Worker("./scripts/worker/runPrediction.js");
     let getTrainedNet = window.localStorage.getItem("neuralNet");
     myWorker.postMessage({
       data: getTrainedNet,
