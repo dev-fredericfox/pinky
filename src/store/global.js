@@ -95,7 +95,7 @@ const methods = {
       myWorker = new Worker("./scripts/worker/sumTypeof.js", {
         type: "module",
       });
-      console.log("Sending data to worker...");
+      // console.log("Sending data to worker...");
       myWorker.postMessage({
         meta: [...data.trainingSetInputJSON.meta.fields],
         data: cold.storage.data,
@@ -120,7 +120,7 @@ const methods = {
     myWorker = new Worker("./scripts/worker/formatTypes.js", {
       type: "module",
     });
-    console.log("Sending data to worker n2...");
+    // console.log("Sending data to worker n2...");
     myWorker.postMessage({
       data: cold.storage.data,
       replace: key,
@@ -129,7 +129,7 @@ const methods = {
       bin: cold.trainingSetBin,
     });
     myWorker.onmessage = function (e) {
-      console.log(e);
+      // console.log(e);
       cold.storage.data = e.data;
       data[target].data = e.data;
       methods.sumTypeof();
@@ -150,8 +150,8 @@ const methods = {
   trainBrain: function () {
     myWorker.terminate();
     myWorker = new Worker("./scripts/worker/neuralNet.js");
-    console.log("Booting Brain...");
-    console.log("Here we go: ");
+    // console.log("Booting Brain...");
+    // console.log("Here we go: ");
     ui.trainingStatus = 0;
     let deepBrain = JSON.parse(JSON.stringify(data.brainTraining));
     let deepOptions = JSON.parse(JSON.stringify(brainOptions));
@@ -161,7 +161,7 @@ const methods = {
     });
     myWorker.onmessage = function (e) {
       if (e.data.savedNet == "") {
-        console.log(e.data);
+        // console.log(e.data);
         ui.trainingStatus = e.data.update.iterations;
         ui.trainingError = e.data.update.error;
       } else {
@@ -170,14 +170,14 @@ const methods = {
           "neuralNet",
           JSON.stringify(data.trainedNet)
         );
-        console.log("Trained Net:", data.trainedNet);
+        // console.log("Trained Net:", data.trainedNet);
         // ui.trainingStatus = brainOptions.iterations;
       }
     };
   },
   runPrediction: function () {
     ui.predictionReady = false;
-    console.log("booting prediction worker");
+    // console.log("booting prediction worker");
     myWorker = new Worker("./scripts/worker/runPrediction.js");
     let getTrainedNet = window.localStorage.getItem("neuralNet");
     myWorker.postMessage({
@@ -189,7 +189,7 @@ const methods = {
         data.brainPredictionResult.push(e.data);
       } else {
         ui.predictionReady = true;
-        console.log(e.data);
+        // console.log(e.data);
       }
     };
   },

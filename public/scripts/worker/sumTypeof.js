@@ -20,7 +20,7 @@ onmessage = (e) => {
     return obj;
   };
 
-  console.log("evaluating max.");
+  // console.log("evaluating max.");
   const getMax = function () {
     let obj = {};
     e.data.meta.forEach((key) => {

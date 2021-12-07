@@ -11,12 +11,12 @@ onmessage = (e) => {
   e.data.brainOptions.callback = statusUpdate;
   // eslint-disable-next-line
   const net = new brain.NeuralNetwork(e.data.brainOptions);
-  console.log("brain options inside worker:", e.data.brainOptions);
+  // console.log("brain options inside worker:", e.data.brainOptions);
   const trainingData = e.data.data;
   net.train(trainingData);
 
   // // save trained network to json
   const savedNet = net.toJSON();
-  console.log("Saved net inside worker: ", savedNet);
+  // console.log("Saved net inside worker: ", savedNet);
   postMessage({ update: "", savedNet: savedNet });
 };

@@ -1,8 +1,8 @@
 onmessage = (e) => {
   //replace values
-  console.log(e)
+  // console.log(e)
   e.data.replace.forEach((el) => {
-    console.log(el);
+    // console.log(el);
     e.data.data.forEach((data) => {
       // console.log(data[el.key]);
       if (el.replace === typeof data[el.key]) {

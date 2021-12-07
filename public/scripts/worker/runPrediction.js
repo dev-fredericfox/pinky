@@ -3,8 +3,8 @@ self.importScripts(
 );
 
 onmessage = (e) => {
-  console.log("inside worker: ", e);
-  // eslint-disable-next-line
+  // console.log("inside worker: ", e);
+  // // eslint-disable-next-line
   const net = new brain.NeuralNetwork();
   let settings = JSON.parse(e.data.data);
   net.fromJSON(settings);
